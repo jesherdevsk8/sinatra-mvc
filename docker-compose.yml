@@ -1,0 +1,12 @@
+version: "2"
+services:
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=MO9zW0Rb@CdCR
+      - POSTGRES_DB=players_development
+      - TZ=America/Sao_Paulo

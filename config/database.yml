@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("MAX_THREADS") { 5 } %>
+  timeout: 5000
+  host: <%= ENV.fetch("DB_HOST", 'localhost') %>
+  port: 5432
+  username: <%= ENV.fetch("DB_USER", 'postgres') %>
+  password: <%= ENV.fetch("DB_PASS", 'MO9zW0Rb@CdCR') %>
+
+development:
+  <<: *default
+  database: players_development
+
+test:
+  <<: *default
+  database: players_test
+
+production:
+  <<: *default
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  # database: players_production
